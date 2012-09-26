@@ -56,7 +56,7 @@ cd $1
 for i in `ls -1 | sort `;
 	do
 		nextName
-		echo 'result is : '$function_result
+		#echo 'result is : '$function_result
 		`mv $i $function_result`
 
 	done
