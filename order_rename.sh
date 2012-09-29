@@ -8,21 +8,10 @@
 
 #to execute
 #$chmod +x order_rename.sh
-#$./order_rename.sh path_to_directory
-
-if [ $# -lt 1 ]; then
-	echo 'The correct usage is : '
-	echo '$./order_rename path_to_the_directory'
-	exit
-fi
+#$./order_rename.sh
 
 
-if [ ! -d $1 ]; then
-	echo 'Argument should be a directory'	
-	echo 'The correct usage is : '
-	echo '$./order_rename path_to_the_directory'
-	exit
-fi
+
 INDEX=0
 function_result='noPE' #initial value
 function nextName {
@@ -51,9 +40,8 @@ function nextName {
 #first change into the input directory
 
 
-cd $1
 
-for i in `ls -1 | sort `;
+for i in `ls -1 | grep dat$ |  sort `;
 	do
 		nextName
 		#echo 'result is : '$function_result
@@ -61,4 +49,3 @@ for i in `ls -1 | sort `;
 
 	done
 
-cd -
